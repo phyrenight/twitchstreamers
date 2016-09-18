@@ -36,19 +36,36 @@ function i(){
       }
       console.log(streamers[0].url)
     }
-    loadAll(streamers)
+    loadDisplay(streamers)
+}
+
+function allStreamers(){
+	loadDisplay(streamers);
 }
 
 function offline(){
-	lst = [];
+	var lst = [];
 	for(i in streamers){
-		if(streamers[i].active == null){
-			lst.push(streamers[i])
+		if(streamers[i].stream == null){
+			lst.push(streamers[i]);
+			console.log(lst)
 		}
 	}
-	loadAll(lst)
+	loadDisplay(lst);
 }
-function loadAll(streamers){
+
+function online(){
+	var lst = [];
+	for(i in streamers){
+		if(streamers[i].stream != null){
+			lst.push(streamers[i]);
+			console.log(lst)
+		}
+	}
+	loadDisplay(lst);
+}
+
+function loadDisplay(streamers){
 	var height = 50;
 	var width = 50;
 	$streamers = $("#streamers");
