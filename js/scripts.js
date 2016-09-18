@@ -1,6 +1,5 @@
 var streamers = [{
 	name: "reckful",
-	active: ""
     },{
     	name:"freecodecamp"
     },{
@@ -12,9 +11,7 @@ var streamers = [{
 var newStream= [{}]
 function getStreamers(stream){
 	$streamers = $("#streamers")
-	//var n = ['reckful', 'freecodecamp', 'pokiman', 'noobs2ninjas']
-	
-    //for(i in streamers){
+		
       var data = $.parseJSON($.ajax({
 	    url:'https://api.twitch.tv/kraken/streams/'+stream.name,
         type: 'Get',
@@ -22,11 +19,6 @@ function getStreamers(stream){
     	  'Client-ID': 'gljkkzqeuggc7c0zxppf6dlmpfectnr'
         },
         async: false
-	   // success: function(data){
-	    //	var htmlList = "<ul><p>"+data.stream+"</p></ul>";
-	    //    $streamers.append(htmlList);
-	    //	console.log(data);
-	   // }
       }).responseText);
       return data
 }
@@ -44,12 +36,23 @@ function i(){
       }
       console.log(streamers[0].url)
     }
-    loadAll()
+    loadAll(streamers)
 }
-function loadAll(){
-	var height = 20;
-	var width = 20;
+
+function offline(){
+	lst = [];
+	for(i in streamers){
+		if(streamers[i].active == null){
+			lst.push(streamers[i])
+		}
+	}
+	loadAll(lst)
+}
+function loadAll(streamers){
+	var height = 50;
+	var width = 50;
 	$streamers = $("#streamers");
+	$streamers.empty();
 	for(i in streamers){
 		var streamersHtml = 0;
 		if(streamers[i].stream == null){
