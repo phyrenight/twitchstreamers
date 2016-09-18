@@ -22,7 +22,7 @@ function getStreamers(stream){
       }).responseText);
       return data
 }
-function i(){
+function getData(){
 	for(i in streamers){
 	  var data = getStreamers(streamers[i])
       if(data.stream == null){
@@ -39,6 +39,16 @@ function i(){
     loadDisplay(streamers)
 }
 
+function streamerSearch(){
+	var lst = [];
+	word = document.getElementById("search").value;
+    for(i in streamers){
+    	if(streamers[i].name.indexOf(word) >= 0)
+            lst.push(streamers[i]);
+    }
+    loadDisplay(lst);
+}
+
 function allStreamers(){
 	loadDisplay(streamers);
 }
@@ -48,7 +58,6 @@ function offline(){
 	for(i in streamers){
 		if(streamers[i].stream == null){
 			lst.push(streamers[i]);
-			console.log(lst)
 		}
 	}
 	loadDisplay(lst);
@@ -59,7 +68,6 @@ function online(){
 	for(i in streamers){
 		if(streamers[i].stream != null){
 			lst.push(streamers[i]);
-			console.log(lst)
 		}
 	}
 	loadDisplay(lst);

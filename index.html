@@ -8,7 +8,7 @@
     <script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
     <script src="js/scripts.js"></script>
   </head>
-  <body onload="i()">
+  <body onload="getData()">
     <header>
       <h1>Twitch stream list</h1>
     </header>
@@ -20,7 +20,7 @@
       <div id="online" class="tab" onclick="online()">Online</div>
       <div id="offline" class="tab" onclick="offline()">Offline</div>
       </div>
-      <input type="text">
+      <input type="text" value="search" id="search"onkeyup="streamerSearch()">
       <ul id="streamers">
       </ul>
       </section>
