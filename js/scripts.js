@@ -10,7 +10,7 @@ var streamers = [{
 
 var newStream= [{}]
 function getStreamers(stream){
-	$streamers = $("#streamers")
+	//DELETE???$streamers = $("#streamers")
 		
       var data = $.parseJSON($.ajax({
 	    url:'https://api.twitch.tv/kraken/streams/'+stream.name,
