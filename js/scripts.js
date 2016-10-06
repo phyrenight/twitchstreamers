@@ -34,7 +34,6 @@ function getData(){
       	streamers[i].logo = data.stream.channel.logo;
       	streamers[i].url = data.stream.channel.url;
       }
-      console.log(streamers[0].url)
     }
     loadDisplay(streamers)
 }
@@ -76,23 +75,24 @@ function online(){
 function loadDisplay(streamers){
 	var height = 50;
 	var width = 50;
+	var boot ="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-5 col-lg-4 col-lg-offset-5";
 	$streamers = $("#streamers");
 	$streamers.empty();
 	for(i in streamers){
 		var streamersHtml = 0;
 		if(streamers[i].stream == null){
-			 streamersHtml = "<li><a href='https://www.twitch.tv/"+
+			 streamersHtml = "<div class='row'><li class='"+boot+"'><a href='https://www.twitch.tv/"+
 			 streamers[i].name+"'><img src='#' height="+height+" width="+
 			 width+ "alt='"+streamers[i].name+"' title='"+
 			 streamers[i].name+"'></a><p>"+streamers[i].name+
-			 " status: <span class='offline'>offline</span></p></li>";
+			 " status: <span class='offline'>offline</span></p></li></div>";
 	   }else{
-	   	streamersHtml = "<li><a href='"+streamers[i].url+"'><img src='"+
+	   	streamersHtml = "<div class='row'><li class='"+boot+"'><a href='"+streamers[i].url+"'><img src='"+
 	   	streamers[i].logo+"' height="+height+"width="+width+"alt='"+
 	   	streamers[i].name+"' title='"+streamers[i].name+"'></a><p>"
 	   	+streamers[i].name+" status: <span class='active'>"+
 	   	     streamers[i].stream+"</span></p><p>game: "+streamers[i].game+
-	   	     " details: "+streamers[i].details+"</p></li>"
+	   	     " details: "+streamers[i].details+"</p></li></div>"
 	   }
        $streamers.append(streamersHtml)
 	}
