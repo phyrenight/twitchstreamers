@@ -1,3 +1,4 @@
+//List of streamers
 var streamers = [{
     name: "reckful"
   },
@@ -12,7 +13,11 @@ var streamers = [{
   }];
 
 function getStreamers(stream){
-  //DELETE???$streamers = $("#streamers")
+  /*
+    args - streamers - an object of twitch streamers
+    retrieves data about each twitch streamer
+    return - returns jason data
+  */
   var data = $.parseJSON($.ajax({
     url:"https://api.twitch.tv/kraken/streams/"+stream.name,
     type: "Get",
@@ -25,6 +30,9 @@ function getStreamers(stream){
 }
 
 function getData(){
+  /*
+     Gets data from twitch api and saves it to streamers
+  */
   var data = "";
   for(var i in streamers){
     data = getStreamers(streamers[i]);
@@ -43,6 +51,9 @@ function getData(){
 }
 
 function streamerSearch(){
+  /*
+    Used to search for a streamer in the list.
+  */
   var lst = [];
   var word = document.getElementById("search").value;
   for(var i in streamers){
@@ -53,10 +64,16 @@ function streamerSearch(){
 }
 
 function allStreamers(){
+  /*
+    Used to pass all streamers to the loadDisplay function
+  */
   loadDisplay(streamers);
 }
 
 function offline(){
+  /*
+    Used to pass only streamers who are offline to loadDisplay()
+  */
   var lst = [];
   for(var i in streamers){
     if(streamers[i].stream === null){
@@ -67,6 +84,9 @@ function offline(){
 }
 
 function online(){
+  /*
+    passes only onlie streamers to loadDisplay function
+  */
   var lst = [];
   for(var i in streamers){
     if(streamers[i].stream !== null){
@@ -77,6 +97,10 @@ function online(){
 }
 
 function loadDisplay(streamers){
+  /*
+    args - streamers - object containing the streamers to be displayed
+    Need to append streamers to the page
+  */
   var height = 50;
   var width = 50;
   var boot ="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-5 col-lg-4 col-lg-offset-5";
