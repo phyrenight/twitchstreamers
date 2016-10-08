@@ -10,6 +10,13 @@ var streamers = [{
   },
   {
     name : "noobs2ninjas"
+
+  },
+  {
+  	name : "brunofin"
+  },
+  {
+  	name : "comster404"
   }];
 
 function getStreamers(stream){

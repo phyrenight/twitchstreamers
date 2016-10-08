@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>My Twitch stream list</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device=width, initial-scale=1">
     <script src="js/JQuery.js"></script>
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
@@ -13,18 +15,17 @@
   </head>
   <body onload="getData()">
     <header class="jumbotron">
-      <h1 class="text-center">Twitch stream list</h1>
+      <h1 class="text-center">Twitch Stream List</h1>
     </header>
     <article class="">
       <section class="container">
       <div class="row">
-      <div id="all" class="tab col-xs-1 col-xs-offset-3 col-sm-1 col-sm-offset-4 col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5" onclick="allStreamers()">All
-      </div>
+      <div id="all" class="tab col-xs-1 col-xs-offset-3 col-sm-1 col-sm-offset-4 col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5" onclick="allStreamers()">All</div>
       <div id="online" class="tab col-xs-1 col-sm-1 col-md-1 col-lg-1" onclick="online()">Online</div>
       <div id="offline" class="tab col-xs-1 col-sm-1 col-md-1 col-lg-1" onclick="offline()">Offline</div>
       </div>
       <div class="row">
-      <input type="text" value="search" id="search" onkeyup="streamerSearch()" class="col-xs-4 col-xs-offset-3 col-sm-3 col-sm-offset-4 col-md-2 col-md-offset-5 col-lg-2 col-lg-offset-5">
+      <input type="text" placeholder="search" id="search" onkeyup="streamerSearch()" class="col-xs-4 col-xs-offset-3 col-sm-3 col-sm-offset-4 col-md-2 col-md-offset-5 col-lg-2 col-lg-offset-5">
       </div>
       <ul id="streamers">
       </ul>
