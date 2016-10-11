@@ -13,10 +13,10 @@ var streamers = [{
 
   },
   {
-  	name : "brunofin"
+    name : "brunofin"
   },
   {
-  	name : "comster404"
+    name : "comster404"
   }];
 
 function getStreamers(stream){
@@ -43,17 +43,22 @@ function getData(){
   var data = "";
   for(var i in streamers){
     data = getStreamers(streamers[i]);
-    if(data.stream === null){
-      streamers[i].stream = null;
+    if(data.error){
+      streamers[i].stream = data.error;
     }
     else{
-      streamers[i].stream = "active";
-      streamers[i].game = data.stream.game;
-      streamers[i].details = data.stream.channel.status;
-      streamers[i].logo = data.stream.channel.logo;
-      streamers[i].url = data.stream.channel.url;
+      if(data.stream === null){
+        streamers[i].stream = null;
+      }
+      else{
+        streamers[i].stream = "active";
+        streamers[i].game = data.stream.game;
+        streamers[i].details = data.stream.channel.status;
+        streamers[i].logo = data.stream.channel.logo;
+        streamers[i].url = data.stream.channel.url;
+      }
     }
-  }
+  }  
   loadDisplay(streamers);
 }
 
@@ -96,7 +101,7 @@ function online(){
   */
   var lst = [];
   for(var i in streamers){
-    if(streamers[i].stream !== null){
+    if(streamers[i].stream == "active"){
       lst.push(streamers[i]);
     }
   }
@@ -122,13 +127,17 @@ function loadDisplay(streamers){
       streamers[i].name+"'></a><p>"+streamers[i].name+
       " status: <span class='offline'>offline</span></p></li></div>";
     }
-    else{
+    else if(streamers[i].stream == "active"){
       streamersHtml = "<div class='row'><li class='"+boot+"'><a href='"+streamers[i].url+"'><img src='"+
       streamers[i].logo+"' height="+height+"width="+width+"alt='"+
       streamers[i].name+"' title='"+streamers[i].name+"'></a><p>"+
       streamers[i].name+" status: <span class='active'>"+
       streamers[i].stream+"</span></p><p>game: "+streamers[i].game+
       " details: "+streamers[i].details+"</p></li></div>";
+    }
+    else{
+      streamersHtml = "<div class='row'><li class='"+boot+"'><p>"+streamers[i].name+"</p>"+
+      "<p>"+streamers[i].stream+"</p>";
     }
     $streamers.append(streamersHtml);
   }
