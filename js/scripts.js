@@ -115,7 +115,7 @@ function loadDisplay(streamers){
   */
   var height = 50;
   var width = 50;
-  var boot ="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-5 col-lg-4 col-lg-offset-5";
+  var boot ="col-xs-9 col-xs-offset-3 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-5 col-lg-4 col-lg-offset-5";
   $streamers = $("#streamers");
   $streamers.empty();
   for(var i in streamers){
@@ -125,7 +125,7 @@ function loadDisplay(streamers){
       streamers[i].name+"'><img src='#' height="+height+" width="+
       width+ "alt='"+streamers[i].name+"' title='"+
       streamers[i].name+"'></a><p>"+streamers[i].name+
-      " status: <span class='offline'>offline</span></p></li></div>";
+      " </p><p> <span class='offline'>status: offline</span></p></li></div>";
     }
     else if(streamers[i].stream == "active"){
       streamersHtml = "<div class='row'><li class='"+boot+"'><a href='"+streamers[i].url+"'><img src='"+
