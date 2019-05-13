@@ -1,0 +1,23 @@
+{
+  "name": "twitchstreamers",
+  "version": "1.0.0",
+  "description": "A page listing of all the twitch streamers I watch.The list can be sorted based on if the streamer is online or offline.This project uses HTML5, CSS3, javascript and jquery.The Twitch api is also used in this project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass --watch css  -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phyrenight/twitchstreamers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phyrenight/twitchstreamers/issues"
+  },
+  "homepage": "https://github.com/phyrenight/twitchstreamers#readme",
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  }
+}
