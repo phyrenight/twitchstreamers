@@ -121,14 +121,16 @@ function loadDisplay(streamers){
   for(var i in streamers){
     var streamersHtml = 0;
     if(streamers[i].stream === null){
-      streamersHtml = "<div class='row justify-content-center'><li class='"+boot+"'><a href='https://www.twitch.tv/"+
+      streamersHtml = "<div class='row justify-content-center'>"
+      +"<li class='"+boot+"'><a href='https://www.twitch.tv/"+
       streamers[i].name+"'><img src='#' height="+height+" width="+
       width+ "alt='"+streamers[i].name+"' title='"+
       streamers[i].name+"'></a><p>"+streamers[i].name+
       " </p><p> <span class='offline'>status: offline</span></p></li></div>";
     }
     else if(streamers[i].stream == "active"){
-      streamersHtml = "<div class='row'><li class='"+boot+"'><a href='"+streamers[i].url+"'><img src='"+
+      streamersHtml = "<div class='row justify-content-center'>"
+      +"<li class='"+boot+"'><a href='"+streamers[i].url+"'><img src='"+
       streamers[i].logo+"' height="+height+"width="+width+"alt='"+
       streamers[i].name+"' title='"+streamers[i].name+"'></a><p>"+
       streamers[i].name+" status: <span class='active'>"+
@@ -136,7 +138,7 @@ function loadDisplay(streamers){
       " details: "+streamers[i].details+"</p></li></div>";
     }
     else{
-      streamersHtml = "<div class='row'><li class='"+boot+"'><p>"+streamers[i].name+"</p>"+
+      streamersHtml = "<div class='row justify-content-center'><li class='"+boot+"'><p>"+streamers[i].name+"</p>"+
       "<p>"+streamers[i].stream+"</p>";
     }
     $streamers.append(streamersHtml);
