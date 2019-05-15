@@ -5,7 +5,8 @@
     <title>My Twitch stream list</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <!-- <link rel="stylesheet" href="css/bootstrap.css">-->
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body onload="getData()">
@@ -13,13 +14,13 @@
       <h1 class="text-center">Twitch Stream List</h1>
     </header>
     <article class="">
-      <section class="container">
-        <div class="row" id="selectors">
-          <input type="button" id="all" class="col-xs-2 col-xs-offset-3 col-sm-1 col-sm-offset-3 col-md-1 col-md-offset-4 col-lg-1 col-lg-offset-4 btn" onclick="allStreamers()" value="All">
-          <input type="button" id="online" class="col-xs-2 col-sm-1 col-md-1 col-lg-1 btn col-sm-offset-1" onclick="online()" value="Online">
-          <input type="button" id="offline" class="col-xs-2 col-sm-1 col-md-1 col-lg-1 btn" onclick="offline()" value="Offline">
+      <section class="container m-*-auto">
+        <div class="row justify-content-center" id="selectors">
+          <input type="button" id="all" class="col-xs-2 col-sm-2 col-md-2 col-lg-1 btn" onclick="allStreamers()" value="All">
+          <input type="button" id="online" class="col-xs-2 col-sm-2 col-md-2 col-lg-1 btn" onclick="online()" value="Online">
+          <input type="button" id="offline" class="col-xs-2 col-sm-2 col-md-2 col-lg-1 btn" onclick="offline()" value="Offline">
         </div>
-      <div class="row">
+      <div class="row justify-content-center">
       <input type="text" placeholder="search" id="search" onkeyup="streamerSearch()" class="col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-4 col-md-2 col-md-offset-5 col-lg-2 col-lg-offset-5">
       </div>
       <ul id="streamers">

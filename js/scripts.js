@@ -121,7 +121,7 @@ function loadDisplay(streamers){
   for(var i in streamers){
     var streamersHtml = 0;
     if(streamers[i].stream === null){
-      streamersHtml = "<div class='row'><li class='"+boot+"'><a href='https://www.twitch.tv/"+
+      streamersHtml = "<div class='row justify-content-center'><li class='"+boot+"'><a href='https://www.twitch.tv/"+
       streamers[i].name+"'><img src='#' height="+height+" width="+
       width+ "alt='"+streamers[i].name+"' title='"+
       streamers[i].name+"'></a><p>"+streamers[i].name+
